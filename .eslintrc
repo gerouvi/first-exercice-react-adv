@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb", "airbnb/hooks", "plugin:react/jsx-runtime", "prettier"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/require-default-props": "off"
+  }
+}
