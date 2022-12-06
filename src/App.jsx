@@ -31,15 +31,18 @@ function App() {
   } = useShapes(110, '#00fcff')
 
   useEffect(() => {
-    if (circleColor === squareColor && squareColor === triangleColor)
+    if (circleColor === squareColor && squareColor === triangleColor) {
       // eslint-disable-next-line no-alert, no-undef
-      alert('All fiigures have the same color!')
+      alert('All figures have the same color!')
+      // setTimeout(() => , 0)
+    }
   }, [circleColor, squareColor, triangleColor])
 
   useEffect(() => {
-    if (squareSize === circleSize && circleSize === triangleSize)
+    if (squareSize === circleSize && circleSize === triangleSize) {
       // eslint-disable-next-line no-alert, no-undef
-      alert('All fiigures have the same size!')
+      setTimeout(() => alert('All figures have the same size!'), 0)
+    }
   }, [circleSize, squareSize, triangleSize])
 
   return (
@@ -53,7 +56,7 @@ function App() {
         <InputNumber
           label="Circle size"
           value={circleSize}
-          onChange={(e) => setCircleSize(Number(e.target.value))}
+          onChange={(e) => setCircleSize(e.target.value)}
         />
         <Circle size={circleSize} color={circleColor} />
       </div>
@@ -66,7 +69,7 @@ function App() {
         <InputNumber
           label="Square size"
           value={squareSize}
-          onChange={(e) => setSquareSize(Number(e.target.value))}
+          onChange={(e) => setSquareSize(e.target.value)}
         />
         <Square size={squareSize} color={squareColor} />
       </div>
@@ -79,7 +82,7 @@ function App() {
         <InputNumber
           label="Triangle size"
           value={triangleSize}
-          onChange={(e) => setTriangleSize(Number(e.target.value))}
+          onChange={(e) => setTriangleSize(e.target.value)}
         />
         <Triangle size={triangleSize} color={triangleColor} />
       </div>

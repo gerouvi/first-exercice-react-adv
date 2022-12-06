@@ -5,9 +5,9 @@ const useShapes = (size, color) => {
     size,
     color,
   })
-  const setSize = (newSize) => setShapes({ ...shapes, size: newSize })
+  const setSize = (newSize) => setShapes({ ...shapes, size: Number(newSize) })
 
-  const setColor = (newColor) => setColor({ ...shapes, color: newColor })
+  const setColor = (newColor) => setShapes({ ...shapes, color: newColor })
 
   return {
     size: shapes.size,

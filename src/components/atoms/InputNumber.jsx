@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
 export function InputNumber({ label, value, onChange }) {
+  console.log('input number', value)
   return (
     <>
       <label htmlFor="sizeShape">{label}:</label>
