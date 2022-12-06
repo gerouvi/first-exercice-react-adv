@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 export function InputColor({ label, color, onChange }) {
   return (
     <div style={{ marginBottom: `${10}px` }}>
-      <span>{label}:</span>
+      <label htmlFor="colorShape">{label}:</label>
       <input
+        id="colorShape"
+        name="colorShape"
         type="color"
         value={color}
         style={{ width: '30px', height: '20px', marginLeft: '10px' }}

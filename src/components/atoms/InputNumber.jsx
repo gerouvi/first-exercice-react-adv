@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 export function InputNumber({ label, value, onChange }) {
   return (
     <>
-      <span>{label}:</span>
+      <label htmlFor="sizeShape">{label}:</label>
       <input
+        id="sizeShape"
+        name="sizeShape"
         type="number"
         style={{ width: '50px', marginLeft: '10px', marginBottom: '10px' }}
         value={value}

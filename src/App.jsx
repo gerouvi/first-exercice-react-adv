@@ -6,13 +6,29 @@ import {
   Square,
   Triangle,
 } from './components/atoms'
-import { useCircle, useSquare, useTriangle } from './lib/hooks'
+import useShapes from './lib/hooks/useShapes'
 
 function App() {
-  const { circleSize, circleColor, setCircleSize, setCircleColor } = useCircle()
-  const { triangleSize, triangleColor, setTriangleSize, setTriangleColor } =
-    useTriangle()
-  const { squareSize, squareColor, setSquareSize, setSquareColor } = useSquare()
+  const {
+    color: circleColor,
+    size: circleSize,
+    setColor: setCircleColor,
+    setSize: setCircleSize,
+  } = useShapes(118, '#2a3f5a')
+
+  const {
+    color: squareColor,
+    size: squareSize,
+    setColor: setSquareColor,
+    setSize: setSquareSize,
+  } = useShapes(120, '#b12b34')
+
+  const {
+    color: triangleColor,
+    size: triangleSize,
+    setColor: setTriangleColor,
+    setSize: setTriangleSize,
+  } = useShapes(110, '#00fcff')
 
   useEffect(() => {
     if (circleColor === squareColor && squareColor === triangleColor)
