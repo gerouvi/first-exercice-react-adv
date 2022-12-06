@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 export function InputColor({ label, color, onChange }) {
   return (
     <div style={{ marginBottom: `${10}px` }}>
+      {/* Tiene que ser un <label> y tener htmlFor */}
       <span>{label}:</span>
+      {/* Tiene que tener id y name */}
       <input
         type="color"
         value={color}

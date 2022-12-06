@@ -9,6 +9,7 @@ import {
 import { useCircle, useSquare, useTriangle } from './lib/hooks'
 
 function App() {
+    // El hook debería de ser useShape y devolver size/setSize con color/setColor
   const { circleSize, circleColor, setCircleSize, setCircleColor } = useCircle()
   const { triangleSize, triangleColor, setTriangleSize, setTriangleColor } =
     useTriangle()
