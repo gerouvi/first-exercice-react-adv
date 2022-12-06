@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types'
 
-function Triangle({ size, color }) {
+export function Triangle({ size, color }) {
   return (
-    <div
-      style={{
-        width: 0,
-        height: 0,
-        borderBottom: `${size}px solid ${color}`,
-        borderLeft: `${size / 2}px solid transparent`,
-        borderRight: `${size / 2}px solid transparent`,
-      }}
-    />
+    <div>
+      <svg width={size} height={size} fill={color}>
+        <polygon points={`${size / 2},0 0,${size} ${size},${size}`} />
+      </svg>
+    </div>
   )
 }
 
@@ -18,5 +14,3 @@ Triangle.propTypes = {
   size: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
 }
-
-export default Triangle

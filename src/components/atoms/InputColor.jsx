@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function InputColor({ label, color, setter }) {
+export function InputColor({ label, color, onChange }) {
   return (
     <div style={{ marginBottom: `${10}px` }}>
       <span>{label}:</span>
@@ -8,7 +8,7 @@ function InputColor({ label, color, setter }) {
         type="color"
         value={color}
         style={{ width: '30px', height: '20px', marginLeft: '10px' }}
-        onChange={(e) => setter(e.target.value)}
+        onChange={onChange}
       />
     </div>
   )
@@ -17,7 +17,5 @@ function InputColor({ label, color, setter }) {
 InputColor.propTypes = {
   label: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  setter: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
-
-export default InputColor

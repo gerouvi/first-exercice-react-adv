@@ -1,23 +1,21 @@
 import PropTypes from 'prop-types'
 
-function InputSize({ label, size, setter }) {
+export function InputNumber({ label, value, onChange }) {
   return (
     <>
       <span>{label}:</span>
       <input
         type="number"
         style={{ width: '50px', marginLeft: '10px', marginBottom: '10px' }}
-        value={size}
-        onChange={(e) => setter(Number(e.target.value))}
+        value={value}
+        onChange={onChange}
       />
     </>
   )
 }
 
-InputSize.propTypes = {
+InputNumber.propTypes = {
   label: PropTypes.string.isRequired,
-  setter: PropTypes.func.isRequired,
-  size: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 }
-
-export default InputSize

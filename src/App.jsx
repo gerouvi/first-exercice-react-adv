@@ -1,53 +1,71 @@
-import Circle from './components/atoms/Circle'
-import InputColor from './components/atoms/InputColor'
-import InputSize from './components/atoms/InputSize'
-import Square from './components/atoms/Square'
-import Triangle from './components/atoms/Triangle'
-import useFigures from './lib/hooks/useFigures'
+import { useEffect } from 'react'
+import {
+  Circle,
+  InputColor,
+  InputNumber,
+  Square,
+  Triangle,
+} from './components/atoms'
+import { useCircle, useSquare, useTriangle } from './lib/hooks'
 
 function App() {
-  const { figures, setters } = useFigures()
+  const { circleSize, circleColor, setCircleSize, setCircleColor } = useCircle()
+  const { triangleSize, triangleColor, setTriangleSize, setTriangleColor } =
+    useTriangle()
+  const { squareSize, squareColor, setSquareSize, setSquareColor } = useSquare()
+
+  useEffect(() => {
+    if (circleColor === squareColor && squareColor === triangleColor)
+      // eslint-disable-next-line no-alert, no-undef
+      alert('All fiigures have the same color!')
+  }, [circleColor, squareColor, triangleColor])
+
+  useEffect(() => {
+    if (squareSize === circleSize && circleSize === triangleSize)
+      // eslint-disable-next-line no-alert, no-undef
+      alert('All fiigures have the same size!')
+  }, [circleSize, squareSize, triangleSize])
 
   return (
     <div>
       <div style={{ marginBottom: '20px' }}>
         <InputColor
           label="Circle color"
-          color={figures.circle.color}
-          setter={setters.setCircleColor}
+          color={circleColor}
+          onChange={(e) => setCircleColor(e.target.value)}
         />
-        <InputSize
+        <InputNumber
           label="Circle size"
-          size={figures.circle.size}
-          setter={setters.setCircleSize}
+          value={circleSize}
+          onChange={(e) => setCircleSize(Number(e.target.value))}
         />
-        <Circle size={figures.circle.size} color={figures.circle.color} />
+        <Circle size={circleSize} color={circleColor} />
       </div>
       <div style={{ marginBottom: '20px' }}>
         <InputColor
           label="Square color"
-          color={figures.square.color}
-          setter={setters.setSquareColor}
+          color={squareColor}
+          onChange={(e) => setSquareColor(e.target.value)}
         />
-        <InputSize
+        <InputNumber
           label="Square size"
-          size={figures.square.size}
-          setter={setters.setSquareSize}
+          value={squareSize}
+          onChange={(e) => setSquareSize(Number(e.target.value))}
         />
-        <Square size={figures.square.size} color={figures.square.color} />
+        <Square size={squareSize} color={squareColor} />
       </div>
       <div>
         <InputColor
           label="Triangle color"
-          color={figures.triangle.color}
-          setter={setters.setTriangleColor}
+          color={triangleColor}
+          onChange={(e) => setTriangleColor(e.target.value)}
         />
-        <InputSize
+        <InputNumber
           label="Triangle size"
-          size={figures.triangle.size}
-          setter={setters.setTriangleSize}
+          value={triangleSize}
+          onChange={(e) => setTriangleSize(Number(e.target.value))}
         />
-        <Triangle size={figures.triangle.size} color={figures.triangle.color} />
+        <Triangle size={triangleSize} color={triangleColor} />
       </div>
     </div>
   )
