@@ -15,6 +15,11 @@ const INITIAL_STATE_SHAPES = {
   },
 }
 
+// En este hook haces imposible que sea reutilizable por lo siguiente:
+// Mezclas lógica de distintas figuras, que además son muy especificas.
+// Mezclas lógica de entre figuras, los useEffect con comparaciones.
+// Deberías de tener (siguiendo tu lógica) que sea para gestionar tamaño y color.
+// La lógica de useEffect de comparación debería de estar fuera de este hook, porque no es generalizable.
 const useFigures = () => {
   const [figures, setFigures] = useState(INITIAL_STATE_SHAPES)
 

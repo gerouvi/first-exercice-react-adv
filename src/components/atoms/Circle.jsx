@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 
 function Circle({ size, color }) {
   return (
+    // Cambiar <div> y css por SVG
     <div
       style={{
         backgroundColor: color,
