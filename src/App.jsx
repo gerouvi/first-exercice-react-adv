@@ -33,15 +33,14 @@ function App() {
   useEffect(() => {
     if (circleColor === squareColor && squareColor === triangleColor) {
       // eslint-disable-next-line no-alert, no-undef
-      alert('All figures have the same color!')
-      // setTimeout(() => , 0)
+      setTimeout(() => alert('All figures have the same color!'), 0)
     }
   }, [circleColor, squareColor, triangleColor])
 
   useEffect(() => {
     if (squareSize === circleSize && circleSize === triangleSize) {
       // eslint-disable-next-line no-alert, no-undef
-      setTimeout(() => alert('All figures have the same size!'), 0)
+      alert('All figures have the same size!')
     }
   }, [circleSize, squareSize, triangleSize])
 
@@ -50,7 +49,7 @@ function App() {
       <div style={{ marginBottom: '20px' }}>
         <InputColor
           label="Circle color"
-          color={circleColor}
+          value={circleColor}
           onChange={(e) => setCircleColor(e.target.value)}
         />
         <InputNumber
@@ -63,7 +62,7 @@ function App() {
       <div style={{ marginBottom: '20px' }}>
         <InputColor
           label="Square color"
-          color={squareColor}
+          value={squareColor}
           onChange={(e) => setSquareColor(e.target.value)}
         />
         <InputNumber
@@ -76,7 +75,7 @@ function App() {
       <div>
         <InputColor
           label="Triangle color"
-          color={triangleColor}
+          value={triangleColor}
           onChange={(e) => setTriangleColor(e.target.value)}
         />
         <InputNumber

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export function InputColor({ label, color, onChange }) {
+export function InputColor({ label, value, onChange }) {
   return (
     <div style={{ marginBottom: `${10}px` }}>
       <label htmlFor="colorShape">{label}:</label>
@@ -8,7 +8,7 @@ export function InputColor({ label, color, onChange }) {
         id="colorShape"
         name="colorShape"
         type="color"
-        value={color}
+        value={value}
         style={{ width: '30px', height: '20px', marginLeft: '10px' }}
         onChange={onChange}
       />
@@ -18,6 +18,6 @@ export function InputColor({ label, color, onChange }) {
 
 InputColor.propTypes = {
   label: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }
